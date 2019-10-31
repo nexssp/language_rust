@@ -1,5 +1,5 @@
 let languageConfig = Object.assign({}, require("../config.win32"));
-languageConfig.title = "PHP";
+languageConfig.title = "Rust";
 languageConfig.description =
   "A language empowering everyone to build reliable and efficient software.";
 languageConfig.url = "https://www.rust-lang.org/";
