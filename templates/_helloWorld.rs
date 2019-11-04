@@ -5,6 +5,7 @@
 //! serde = "*"
 //! serde_derive = "*"
 //! serde_json = "*"
+//! rustc_version = "*"
 //! ```
 
 // Nexss PROGRAMMER 2.0.0 - Rust
@@ -22,9 +23,11 @@
 extern crate serde;
 extern crate serde_derive;
 extern crate serde_json;
-
 use ::serde_derive::Serialize;
 use ::serde_derive::Deserialize;
+
+extern crate rustc_version;
+use rustc_version::{version, version_meta, Channel, Version};
 
 use serde_json::Value;
 use std::io::{self, Write};
@@ -39,7 +42,7 @@ fn main() -> io::Result<()> {
 
 
 
-            NexssStdout["test"] = serde_json::Value::String("test".to_string());
+            NexssStdout["Hello From Rust"] = serde_json::Value::String(version().unwrap().to_string());
 
 
 

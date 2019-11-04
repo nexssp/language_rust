@@ -10,8 +10,8 @@ languageConfig.compilers = {
     install:
       "scoop install rustup & rustup toolchain install nightly & rustup update & cargo install cargo-script",
     // Cpp does not have possibility to compile and run on the fly. We need to save it as a exe file first.
-    command: "cargo script",
-    args: "<file>",
+    command: "cargo",
+    args: "script <file>",
     help: ``
   }
 };

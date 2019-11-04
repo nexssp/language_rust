@@ -1,4 +1,4 @@
 [package]
 
 [dependencies]
-serde_json = "1.0.39"
+serde_json = "*"
