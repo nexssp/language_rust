@@ -39,13 +39,7 @@ fn main() -> io::Result<()> {
         Ok(_) => {
             // println!("{} bytes read", n);
             let mut NexssStdout:serde_json::Value = serde_json::from_str(&NexssStdin).unwrap();
-
-
-
-            NexssStdout["Hello From Rust"] = serde_json::Value::String(version().unwrap().to_string());
-
-
-
+            NexssStdout["HelloFromRust"] = serde_json::Value::String(version().unwrap().to_string());
             io::stdout().write_all(NexssStdout.to_string().as_bytes())?;
         }
         Err(error) => println!("error: {}", error),
