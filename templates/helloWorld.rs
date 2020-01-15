@@ -12,29 +12,21 @@
 // Default template for JSON Data
 // it's uses cargo script
 
-// #[macro_use]
-// extern crate serde_derive;
-// extern crate serde_json;
-
-// extern crate rustc_version;
-// use rustc_version::{version, version_meta, Channel, Version};
-
 // STDIN
 extern crate serde;
 extern crate serde_derive;
 extern crate serde_json;
-use ::serde_derive::Serialize;
-use ::serde_derive::Deserialize;
+// use ::serde_derive::Serialize;
+// use ::serde_derive::Deserialize;
 
 extern crate rustc_version;
-use rustc_version::{version, version_meta, Channel, Version};
+use rustc_version::{version};
 
 // use serde_json::Value;
 use std::io::{self, Write};
 // use std::mem;
 fn main() -> io::Result<()> {
     let mut nexss_stdout = String::new();
-    // let mut json = serde_json::to_string(&my_obj).expect("Couldn't serialize config");
     match io::stdin().read_line(&mut nexss_stdout) {
         Ok(_) => {
             // println!("{} bytes read", n);
