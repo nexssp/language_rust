@@ -7,11 +7,9 @@ languageConfig.extensions = [".rs"];
 languageConfig.builders = {};
 languageConfig.compilers = {
   rustNightly: {
-    install:
-      "scoop install rustup & rustup toolchain install nightly & rustup update & cargo install cargo-script",
-    // Cpp does not have possibility to compile and run on the fly. We need to save it as a exe file first.
+    install: `Powershell -ExecutionPolicy Bypass -noexit -File ${__dirname}\\install\\installRustup.ps1`,
     command: "cargo",
-    args: "script <file>",
+    args: "script <file> --",
     help: ``
   }
 };
