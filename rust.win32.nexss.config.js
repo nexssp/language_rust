@@ -3,7 +3,10 @@ languageConfig.title = "Rust";
 languageConfig.description =
   "A language empowering everyone to build reliable and efficient software.";
 languageConfig.url = "https://www.rust-lang.org/";
-languageConfig.extensions = [".rs"];
+languageConfig.founders = ["Graydon Hoare"];
+languageConfig.developers = ["Mozilla"];
+languageConfig.years = ["2010"];
+languageConfig.extensions = [".rs", "rlib"];
 languageConfig.builders = {};
 languageConfig.compilers = {
   rustNightly: {
