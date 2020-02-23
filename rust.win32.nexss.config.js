@@ -6,7 +6,7 @@ languageConfig.url = "https://www.rust-lang.org/";
 languageConfig.founders = ["Graydon Hoare"];
 languageConfig.developers = ["Mozilla"];
 languageConfig.years = ["2010"];
-languageConfig.extensions = [".rs", "rlib"];
+languageConfig.extensions = [".rs", ".rlib"];
 languageConfig.builders = {};
 languageConfig.compilers = {
   rustNightly: {
