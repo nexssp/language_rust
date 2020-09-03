@@ -2,7 +2,7 @@ let languageConfig = Object.assign({}, require("./rust.win32.nexss.config"));
 
 languageConfig.compilers = {
   rustNightly: {
-    install: `apt update && apt install curl && curl https://sh.rustup.rs -sSf | bash`,
+    install: `apt update && apt install curl && curl https://sh.rustup.rs -sSf | bash && apt install build-essential`,
     command: "cargo",
     args: "script <file> --",
     help: ``,
