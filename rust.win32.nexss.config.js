@@ -1,4 +1,8 @@
-let languageConfig = Object.assign({}, require("../config.win32"));
+let languageConfig = Object.assign(
+  {},
+  require(`../config.${process.platform}`)
+);
+
 languageConfig.title = "Rust";
 languageConfig.description =
   "A language empowering everyone to build reliable and efficient software.";
@@ -13,8 +17,8 @@ languageConfig.compilers = {
     install: `Powershell -ExecutionPolicy Bypass -noexit -File ${__dirname}\\install\\installRustup.ps1`,
     command: "cargo",
     args: "script <file> --",
-    help: ``
-  }
+    help: ``,
+  },
 };
 languageConfig.errors = require("./nexss.rust.errors");
 languageConfig.languagePackageManagers = {
@@ -30,8 +34,8 @@ languageConfig.languagePackageManagers = {
     init: () => {},
     // if command not found in specification
     // run directly on package manager
-    else: "cargo"
-  }
+    else: "cargo",
+  },
 };
 
 module.exports = languageConfig;
