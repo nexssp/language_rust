@@ -5,4 +5,6 @@ module.exports = {
     "No default toolchain. Maybe this can fix that: rustup install stable AND rustup default stable",
   "Permission denied":
     "You may need to run this command with admin privilages (root?)",
+  "Downloading crates":
+    "At the very first run/execute it will display errors because of installing creates. Try run again and there won't be any errors.",
 };

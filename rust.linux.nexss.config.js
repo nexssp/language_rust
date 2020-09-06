@@ -1,12 +1,13 @@
 let languageConfig = Object.assign({}, require("./rust.win32.nexss.config"));
 
-let sudo = "sudo";
+let sudo = "sudo ";
 if (process.getuid && process.getuid() === 0) {
   sudo = "";
 }
 languageConfig.compilers = {
   rustNightly: {
-    install: `${sudo}snap install rustup --classic && ${sudo}rustup install stable && ${sudo}rustup default stable && ${sudo}cargo install cargo-script`,
+    // install: `${sudo}snap install rustup --classic && ${sudo}rustup install stable && ${sudo}rustup default stable && ${sudo}cargo install cargo-script`,
+    install: `${sudo}apt install -y curl && curl https://sh.rustup.rs -sSf | sh && cargo install cargo-script`,
     command: "cargo",
     args: "script <file> --",
     help: ``,
