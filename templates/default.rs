@@ -23,8 +23,8 @@
 extern crate serde;
 extern crate serde_derive;
 extern crate serde_json;
-use ::serde_derive::Serialize;
-use ::serde_derive::Deserialize;
+// use ::serde_derive::Serialize;
+// use ::serde_derive::Deserialize;
 
 // extern crate rustc_version;
 // use rustc_version::{version, version_meta, Channel, Version};
