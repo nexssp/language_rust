@@ -6,5 +6,7 @@ module.exports = {
   "Permission denied":
     "You may need to run this command with admin privilages (root?)",
   "Downloading crates":
-    "At the very first run/execute it will display errors because of installing creates. Try run again and there won't be any errors.",
+    "At the very first run/execute it will display errors because of installing/updating creates. Try run again and there won't be any errors.",
+  "Updating crates.io":
+    "At the very first run/execute it will display errors because of installing/updating creates. Try run again and there won't be any errors.",
 };
