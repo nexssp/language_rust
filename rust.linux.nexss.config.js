@@ -2,7 +2,7 @@ let languageConfig = Object.assign({}, require("./rust.win32.nexss.config"));
 
 languageConfig.compilers = {
   rustNightly: {
-    install: `snap install rustup --classic && rustup install stable && rustup default stable`,
+    install: `snap install rustup --classic && rustup install stable && rustup default stable && cargo install cargo-script`,
     command: "cargo",
     args: "script <file> --",
     help: ``,
