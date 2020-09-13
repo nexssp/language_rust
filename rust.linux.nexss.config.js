@@ -7,7 +7,12 @@ if (process.getuid && process.getuid() === 0) {
 languageConfig.compilers = {
   rustNightly: {
     // install: `${sudo}snap install rustup --classic && ${sudo}rustup install stable && ${sudo}rustup default stable && ${sudo}cargo install cargo-script`,
-    install: `${sudo}apt install -y curl && curl https://sh.rustup.rs -sSf | sh -s -- -y && echo "export PATH=\"$HOME/.cargo/bin:\$PATH\"" >>~/.bashrc && . ~/.bashrc && cargo install cargo-script`,
+    install: `${sudo}apt install -y curl
+curl https://sh.rustup.rs -sSf | sh -s -- -y
+grep -qxF 'export PATH="$HOME/.cargo/bin:$PATH"' ~/.bashrc || echo 'export PATH="$HOME/.cargo/bin/:$PATH"' > ~/.bashrc
+chmod +x $HOME/.cargo/env
+. $HOME/.cargo/env
+cargo install cargo-script`,
     command: "cargo",
     args: "script <file> --",
     help: ``,
@@ -20,6 +25,7 @@ const {
 } = require(`${process.env.NEXSS_SRC_PATH}/lib/osys`);
 
 const distName = dist();
+languageConfig.dist = distName;
 
 languageConfig.compilers.rustNightly.install = replaceCommandByDist(
   languageConfig.compilers.rustNightly.install
