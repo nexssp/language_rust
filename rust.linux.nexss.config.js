@@ -7,7 +7,7 @@ if (process.getuid && process.getuid() === 0) {
 languageConfig.compilers = {
   rustNightly: {
     // install: `${sudo}snap install rustup --classic && ${sudo}rustup install stable && ${sudo}rustup default stable && ${sudo}cargo install cargo-script`,
-    install: `${sudo}apt install -y curl cmake
+    install: `${sudo}apt install -y curl cmake gcc
 curl https://sh.rustup.rs -sSf | sh -s -- -y
 grep -qxF 'export PATH="$HOME/.cargo/bin:$PATH"' ~/.bashrc || echo 'export PATH="$HOME/.cargo/bin/:$PATH"' > ~/.bashrc
 chmod +x $HOME/.cargo/env
