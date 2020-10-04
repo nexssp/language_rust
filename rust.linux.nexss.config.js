@@ -1,9 +1,12 @@
 let languageConfig = Object.assign({}, require("./rust.win32.nexss.config"));
 
-let sudo = "sudo ";
-if (process.getuid && process.getuid() === 0) {
-  sudo = "";
-}
+const os = require(`${process.env.NEXSS_SRC_PATH}/node_modules/@nexssp/os/`);
+const sudo = os.sudo();
+
+const distName = os.name();
+
+languageConfig.dist = distName;
+
 languageConfig.compilers = {
   rustNightly: {
     // install: `${sudo}snap install rustup --classic && ${sudo}rustup install stable && ${sudo}rustup default stable && ${sudo}cargo install cargo-script`,
@@ -18,21 +21,19 @@ cargo install cargo-script`,
     help: ``,
   },
 };
-
-const {
-  replaceCommandByDist,
-  dist,
-} = require(`${process.env.NEXSS_SRC_PATH}/lib/osys`);
-const distName = dist();
-
 switch (distName) {
-  case "Alpine Linux":
+  case os.distros.UBUNTU:
+    languageConfig.compilers.rustNightly.install = `${sudo}apt update -y
+${sudo}apt-get install -y rustc cargo
+${sudo}cargo install cargo-script`;
+    break;
+  case os.distros.ALPINE:
     languageConfig.compilers.rustNightly.install = `${sudo} apk update
 ${sudo}apk add rust cargo
 ${sudo}cargo install cargo-script`;
     break;
-  case "openSUSE Leap":
-  case "openSUSE Tumbleweed":
+  case os.distros.SUSE_LEAP:
+  case os.distros.SUSE_TUMBLEWEED:
     languageConfig.compilers.rustNightly.install = `${sudo}zypper update
 ${sudo}zypper --non-interactive install -t pattern devel_basis devel_C_C++
 ${sudo}zypper --non-interactive install curl tar gzip libopenssl1_0_0 libicu
