@@ -44,7 +44,7 @@ ${sudo}chmod +x /opt/microsoft/powershell/7/pwsh
 ${sudo}ln -s /opt/microsoft/powershell/7/pwsh /usr/bin/pwsh`;
     break;
   default:
-    languageConfig.compilers.rustNightly.install = replaceCommandByDist(
+    languageConfig.compilers.rustNightly.install = process.replacePMByDistro(
       languageConfig.compilers.rustNightly.install
     );
     break;
